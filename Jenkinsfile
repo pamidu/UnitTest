@@ -15,6 +15,7 @@ pipeline {
         }
         stage('Re-init ECR Auth Token') {
             steps {
+                sh('echo ${BUILD_NUMBER}')
               // sh('aws ecr get-login --no-include-email --region us-west-2 --no-include-email > auth-token.sh')
                //sh('chmod +x auth-token.sh')
               // sh('sh ./auth-token.sh')
@@ -22,6 +23,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps {
+                sh('echo ${BUILD_NUMBER}')
               //  sh('docker push 156109194032.dkr.ecr.us-west-2.amazonaws.com/liongate-dev:Admin-Portal')
                
 
@@ -29,6 +31,7 @@ pipeline {
         }
          stage('ECS Deploynment')   {
              steps {  
+                 sh('echo ${BUILD_NUMBER}')
             // sh('/bin/sh ./ecs.sh')
             }
         }
